@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Complete Goals
+{% endblock %}
+
+{% block main %}
+<h2> Complete Today's Goals</h2>
+<!--Use Jinja to display only today's goals in the select dropdowns-->
+<form action="/complete" method="post" autocomplete="off">
+    <span class="mb-3">
+        <select class="form-control mx-auto w-auto" id="goal" name="goal" placeholder="Goal" type="text">
+            <option value="" disabled selected>Select Goal</option>
+            {% for row in goals %}
+            <option> {{row.goal}}</option>
+            {% endfor %}
+
+        </select>
+    </span>
+    <br>
+    <span class="mb-3">
+        <button class="btn btn-primary" type="submit" inline="true">Finish Goal</button>
+    </span>
+</form>
+{% endblock %}

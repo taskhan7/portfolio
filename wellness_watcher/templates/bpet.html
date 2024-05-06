@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Display Bulbasaur
+{% endblock %}
+
+{% block main %}
+    {% if totalpoints >= 0 and totalpoints < 20 %}
+        <img src="/static/Bulbasaur/bulbasaur.webp" alt="bulbasaur" height="350" width="350">
+    {% elif totalpoints >= 20 and totalpoints < 40 %}
+        <div class="alert alert-success" role="alert">
+            Congrats! Your watcher is onto the second evolution!
+        </div>
+        <img src="/static/Bulbasaur/ivysaur.webp" alt="ivysaur" height="350" width="350">
+    {% elif totalpoints >= 40 and totalpoints < 60 %}
+        <div class="alert alert-success" role="alert">
+            Congrats! Your watcher is onto the third evolution!
+        </div>
+        <img src="/static/Bulbasaur/venasaur.webp" alt="venasaur" height="350" width="350">
+    {% else %}
+        <div class="alert alert-success" role="alert">
+            Congrats! Your watcher is onto the fourth evolution!
+        </div>
+        <img src="/static/Bulbasaur/megavenasaur.webp" alt="megavenasaur" height="350" width="350">
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Choose Your Wellness Watcher
+{% endblock %}
+
+{% block main %}
+    <h2> Choose your Wellness Watcher!</h2>
+    <br>
+    <div class="imgsize">
+        <img src="/static/Bulbasaur/bulbasaur.webp" alt="bulbasaur" height="200" width="200">
+        <img src="/static/eevee/eevee.png" alt="eevee" height="200" width="200">
+        <img src="/static/pikachu/pikachu.webp" alt="pikachu" height="200" width="200" >
+        <img src="/static/squirtle/squirtle.webp" alt="squirtle" height="200" width="200">
+        <img src="/static/charmander/charmander.png" alt="charmander"height="200" width="200">
+    </div>
+    <br>
+    <form action="/pet" method="post">
+        <div class="mb-3">
+            <select class="form-select mx-auto w-auto" id="pet" name="pet">
+                <option disabled selected>Choose Your Pet</option>
+                <option>Bulbasaur</option>
+                <option>Eevee</option>
+                <option>Pikachu</option>
+                <option>Squirtle</option>
+                <option>Charmander</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Choose</button>
+    </form>
+    <br>
+    <h2>Now you can make goals, complete them, watch your pet evolve,
+        <br>
+        and get educated on the importance of mental health!</h2>
+{% endblock %}
+

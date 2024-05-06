@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Set Goals
+{% endblock %}
+
+{% block main %}
+    <h2> Today's Goals</h2>
+    <form method="post" action="/goals">
+        <table class="table table-striped">
+            <thead class="table-success" >
+                <tr>
+                    <th>Completed</th>
+                    <th>Goal</th>
+                    <th>Priority</th>
+                    <th>Date Due</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Display progress via Jinja for row-->
+                {% for row in goals %}
+                <tr>
+                    <label for="complete">
+                        <td><input type="checkbox" name="complete" id="complete" value="{{row.goal}}"/>&nbsp;</td>
+                    </label>
+                    {% if row.time == "Today" %}
+                    <td> {{row.goal}} </td>
+                    <td> {{row.priority}} </td>
+                    <td> {{row.date_due}}</td>
+                    <td> {{row.points}}</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <a href="/complete">
+            <button class="btn btn-primary" type="submit">Check off Goal!</button>
+        </a>
+    </form>
+    <br>
+    <a href="/setgoals">
+        <button class="btn btn-primary" type="submit">Set Goals!</button>
+    </a>
+{% endblock %}
+

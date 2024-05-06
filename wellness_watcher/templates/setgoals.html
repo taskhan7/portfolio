@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Set Goals
+{% endblock %}
+
+{% block main %}
+    <h2>Set Today's Goals</h2>
+    <br>
+    <h3>Input your own custom wellness goals</h3>
+    <p>Some ideas include: drink 8 glasses of water, meditate, journal, exercise, and go outside!</p>
+    <form action="/setgoals" method="post" autocomplete="off">
+        <span class="mb-3">
+            <input class="form-control mx-auto w-auto" id="goal" name="goal" placeholder="Goal" type="text" list="goals"/>
+        </span>
+        <span class="mb-3">
+            <select class="form-control mx-auto w-auto" id="priority" name="priority" placeholder="Priority" type="text">
+                <option value="" disabled selected>Priority</option>
+                <option value="Very High">Very High</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+                <option value="Very Low">Very Low</option>
+            </select>
+        </span>
+        <span class="mb-3">
+            <input class="form-control mx-auto w-auto" id="duedate" name="duedate" placeholder="Due Date" type="text" list="duedates">
+            <datalist id="duedates">
+                <option>Tonight</option>
+                <option>Tomorrow</option>
+              </datalist>
+        </span>
+        <br>
+        <button class="btn btn-primary" type="submit">Set Goal</button>
+    </form>
+{% endblock %}
